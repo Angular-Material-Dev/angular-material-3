@@ -4,7 +4,7 @@
 
 @include mat.core();
 
-$angular-material-3--light-theme: mat.define-theme(
+$angular-material-3-light-theme: mat.define-theme(
   (
     color: (
       theme-type: light,
