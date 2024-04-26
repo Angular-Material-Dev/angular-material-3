@@ -1,1 +1,73 @@
-/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+@use "../m3-theme";
+@use "./app/layout/layout-component.theme";
+
+@include mat.core();
+
+$angular-material-3--light-theme: mat.define-theme(
+  (
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    density: (
+      scale: 0,
+    ),
+  )
+);
+
+$angular-material-3-dark-theme: mat.define-theme(
+  (
+    color: (
+      theme-type: dark,
+      primary: mat.$magenta-palette,
+      tertiary: mat.$violet-palette,
+    ),
+    density: (
+      scale: 0,
+    ),
+  )
+);
+
+// Light theme
+// Un comment below to use theme created by ng add @angular-material
+// $theme: $angular-material-3-light-theme;
+
+// Light Theme created by ng generate @angular-material:m3-theme
+$theme: m3-theme.$light-theme;
+
+// Dark theme
+// Un-comment below to use dark theme using @angular/material
+// $dark-theme: $angular-material-3-dark-theme;
+
+// Dark Theme created by ng generate @angular-material:m3-theme
+$dark-theme: m3-theme.$dark-theme;
+
+:root {
+  @include mat.all-component-themes($theme);
+
+  // Components themes
+  @include layout-component.theme($theme);
+
+  // Add backwards compatibility styles for color variants
+  @include mat.color-variants-backwards-compatibility($theme);
+
+  @media (prefers-color-scheme: dark) {
+    @include mat.all-component-colors($dark-theme);
+
+    // Components themes
+    @include layout-component.theme($dark-theme);
+
+    @include mat.color-variants-backwards-compatibility($dark-theme);
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

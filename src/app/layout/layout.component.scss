@@ -1,0 +1,46 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+.sidenav .mat-toolbar {
+  // background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+mat-sidenav-content {
+  padding: 0 8px;
+}
+
+.sidenav-scroll-wrapper {
+  height: calc(100dvh - 64px - 16px);
+  overflow: auto;
+  border-radius: 16px;
+  box-sizing: border-box;
+}
+
+.sidenav-content {
+  max-height: 100%;
+  overflow-y: auto;
+  padding: 16px;
+  box-sizing: border-box;
+  @media (pointer: fine) {
+    &::-webkit-scrollbar {
+      background-color: transparent;
+      width: 8px;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+    }
+  }
+}
