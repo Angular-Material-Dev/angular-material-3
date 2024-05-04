@@ -1,4 +1,7 @@
 {
   "installDependencies": true,
-  "startCommand": "yarn start"
+  "startCommand": "npm start",
+  "env": {
+    "NODE_VERSION": "18.19.0"
+  }
 }
